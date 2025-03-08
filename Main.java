@@ -1,10 +1,13 @@
+import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-        application();
+    static GestionProgrammeur gestionProgrammeur = new GestionProgrammeur();
 
+    public static void main(String[] args) throws FileNotFoundException{
+        application();
     }
 
     public static int menu()
@@ -12,7 +15,10 @@ public class Main {
         int choix;
         final Scanner clavier = new Scanner(System.in);
         do {
+            System.out.println("Bienvenue dans l'application de gestion des programmeurs !");
             System.out.println("\n===== MENU PRINCIPAL =====");
+
+            System.out.println("0. Lire une liste de programmeurs");
             System.out.println("1. Ajouter un programmeur");
             System.out.println("2. Afficher un programmeur");
             System.out.println("3. Afficher la listes programmeurs");
@@ -30,23 +36,25 @@ public class Main {
             choix = clavier.nextInt();
 
             // Si l'entrée n'est pas dans le bon intervalle, on demande à l'utilisateur de recommencer
-            if (choix < 1 || choix > 8) {
+            if (choix < 0 || choix > 8) {
                 System.out.println("Choix invalide. Veuillez entrer un nombre entre 1 et 8.");
             }
             
-        } while (choix<1 || choix > 8);
+        } while (choix<0 || choix > 8);
 
         return choix;
     }
     
-    public static void application(){
-        GestionProgrammeur gestionProgrammeur = new GestionProgrammeur();
+    public static void application() throws FileNotFoundException {
 
         final Scanner clavier = new Scanner(System.in);
         //System.out.println("Bienvenue dans l'application de gestion des programmeurs !");
         int choix;
         choix = menu();
         switch (choix) {
+            case 0:
+                gestionProgrammeur = GestionProgrammeur.lireProgrammeurFile("programmeurs.txt");
+                break;
             case 1:
                 System.out.println("1. Ajouter un programmeur");
                 gestionProgrammeur.ajouterProgrammeur();                
@@ -54,7 +62,7 @@ public class Main {
             case 2:
                 System.out.println("2. Afficher un programmeur");
                 gestionProgrammeur.afficherUnProgrammeur();
-                System.out.println(gestionProgrammeur);
+                //System.out.println(gestionProgrammeur);
                 break;
             case 3:
                 System.out.println("3. Afficher la listes programmeurs");
@@ -72,11 +80,13 @@ public class Main {
                 System.out.println("6. consommeurs Cafes Semaine");
                 GestionProgrammeur consProgrammeur = new GestionProgrammeur(gestionProgrammeur);
                 consProgrammeur.consommeursCafesSemaine();
-                System.out.println(consProgrammeur);
+                //System.out.println(consProgrammeur);
                 break;
             case 7:
                 System.out.println("7. le nombre total de tasses de café consommé par semaine");
-                gestionProgrammeur.nombreTotalTassesCafeSemaine();
+                System.out.println("le nombre total de tasses de café consommé par semaine: " +
+                        gestionProgrammeur.nombreTotalTassesCafeSemaine());
+                //gestionProgrammeur.nombreTotalTassesCafeSemaine();
                 break;
             case 8:
                 System.out.println("8. Quitter");

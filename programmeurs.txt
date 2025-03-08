@@ -1,4 +1,16 @@
-ID  NOM  PRENOM BUREAU
-1   REIGNIER   PATRICK  205
-5   FAVRE   JEAN-MARIE  566
-2   SCHOLL  PIERRE-CLAUDE   123
+ID | NOM               | PRENOM          | BUREAU
+--------------------------------------------------
+1   REIGNIER          PATRICK          205
+2   FAVRE             JEAN-MARIE       566
+3   SCHOLL            PIERRE-CLAUDE    123
+4   FAUVET            MARIE-CHRISTINE  501
+5   SICARD            PASCAL           678
+6   LAGNIER           FABIENNE         890
+7   DU BOUSQUET       LYDIE            124
+8   CARTADE           ALAIN            123
+9   FERNANDEZ         JEAN-CLAUDE      101
+10  BAUD              DANIEL           345
+11  FORESTIER         GERARD           456
+12  EL KARTOUTI       MOHAMMED         455
+13  ARRIGHI           PABLO            789
+14  PARENT-VIGOUROUX  CATHERINE        712
